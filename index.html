@@ -8,7 +8,9 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-    <div class="board" id="board">
+    <section class="board" id="board">
+        <div class="cell x" data-cell></div>
+        <div class="cell circle" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
@@ -16,13 +18,11 @@
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-    </div>
-    <div class="winning-modal">
+    </section>
+    <section class="winning-modal">
         <div data-winning-modal-text></div>
         <button id="restart">Restart</button>
-    </div>
+    </section>
     <script src="main.js"></script>
 </body>
 </html>

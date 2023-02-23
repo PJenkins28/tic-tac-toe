@@ -3,7 +3,7 @@
 }
 :root {
     --cell-size: 100px;
-    --mark-size: cal(var(--cell-size * 0.9));
+    --mark-size: calc(var(--cell-size * 0.9));
 }
 body {
     margin: 0;
@@ -38,4 +38,17 @@ body {
 .cell:nth-child(8),
 .cell:nth-child(7) {
     border-bottom: none;
+}
+
+.x, .circle {
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.x {
+    background-image: url(./img/x.png);
+}
+.circle {
+    background-image: url(./img/circle.png);
+    background-size: 65%;
 }
