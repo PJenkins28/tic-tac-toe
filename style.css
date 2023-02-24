@@ -52,3 +52,7 @@ body {
     background-image: url(./img/circle.png);
     background-size: 65%;
 }
+.winning-modal {
+    height: 100vh;
+    background-color: black;
+}
