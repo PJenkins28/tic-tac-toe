@@ -11,6 +11,7 @@ Other Features to be Implemented:
 
 - Make an AI option with varying levels of difficulty as Player 2.
 - Store round scores in local storage.
+- Fix styling and add descriptors to page.
 
 ## View
 
