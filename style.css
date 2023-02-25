@@ -18,6 +18,9 @@ body {
     align-items: center;
     grid-template-columns: repeat(3, auto);
 }
+.board:hover {
+    cursor: pointer;
+}
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
@@ -54,5 +57,37 @@ body {
 }
 .winning-modal {
     height: 100vh;
-    background-color: black;
+    width: 100vw;
+    background-color: rgba(133, 130, 130, 0.5);
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal-content {
+    /* border:2px solid pink; */
+    border-radius: 2rem;
+    background-color:rgba(8, 8, 8, 0.799);
+    height: 20vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    gap: 1rem;
+}
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+#restart:hover {
+    cursor: pointer;
 }

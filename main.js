@@ -2,7 +2,6 @@
 //     constructor(grid)
 
 // }
-//Create array to hold board data
 let gameData = [
   [0, 0, 0],
   [0, 0, 0],
@@ -39,12 +38,15 @@ function drawMarkers() {
   // Iterate over rows
   for (let row = 0; row < 3; row++) {
     // Iterate over columns
-    for (col = 0; col < 3; col++) {
+    for (let col = 0; col < 3; col++) {
       // Check if player 1's marker
       if (gameData[row][col] === 1) {
         cells[row * 3 + col].classList.add("x");
       } else if (gameData[row][col] === -1) {
         cells[row * 3 + col].classList.add("circle");
+      } else if (gameData[row][col] === 0) {
+        cells[row * 3 + col].classList.remove("x");
+        cells[row * 3 + col].classList.remove("circle");
       }
     }
   }
@@ -54,7 +56,7 @@ function checkWin() {
   // check rows and columns
   for (let i = 0; i < 3; i++) {
     let rowSum = gameData[i][0] + gameData[i][1] + gameData[i][2];
-    let rowCol = gameData[0][i] + gameData[1][i] + gameData[2][0];
+    let rowCol = gameData[0][i] + gameData[1][i] + gameData[2][i];
     if (rowSum === 3 || rowCol === 3) {
       endGame(1);
       return;
@@ -88,11 +90,39 @@ function checkWin() {
 function endGame(winner) {
   //Trigger game ove
   gameOver = true;
+  let winningMessage = document.querySelector("[data-winning-modal-text]");
 
   // check if tie
   if (winner === 0) {
-    console.log("tie");
+    winningMessage.textContent = "Tie";
+    showWinner();
+    restartGame();
   } else {
-    console.log(`Player ${winner} wins!`);
+    winningMessage.textContent = `Player ${winner} wins!`;
+    showWinner();
+    restartGame();
   }
+}
+
+function showWinner() {
+  let modal = document.querySelector(".winning-modal");
+  modal.classList.add("show");
+}
+function removeModal() {
+  let modal = document.querySelector(".winning-modal");
+  modal.classList.remove("show");
+}
+function restartGame() {
+  let restart = document.querySelector("#restart");
+  restart.addEventListener("click", () => {
+    removeModal();
+    gameData = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ];
+    player = 1;
+    gameOver = false;
+    drawMarkers();
+  });
 }
